@@ -1,6 +1,7 @@
 package com.learningapp.data.entity;
 
 import com.learningapp.data.data_enum.Gender;
+import com.learningapp.data.dto.request.InstructorInputDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,4 +48,13 @@ public class Instructor {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Course> courses;
+
+    public Instructor(InstructorInputDto instructorInputDto){
+        id = instructorInputDto.getId ();
+        firstName = instructorInputDto.getFirstName ();
+        lastName = instructorInputDto.getLastName ();
+        gender = Gender.valueOf ( instructorInputDto.getGender () );
+        specialization = instructorInputDto.getSpecialization ();
+        bio = instructorInputDto.getBio ();
+    }
 }

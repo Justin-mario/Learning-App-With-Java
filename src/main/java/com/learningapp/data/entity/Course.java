@@ -1,5 +1,6 @@
 package com.learningapp.data.entity;
 
+import com.learningapp.data.dto.request.CourseInputDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,4 +48,12 @@ public class Course {
 
     @ManyToMany
     private List<Student> student;
+
+    public Course(CourseInputDto courseInputDto){
+        id = courseInputDto.getId ();
+        title = courseInputDto.getTitle ();
+        description = courseInputDto.getDescription ();
+        language = courseInputDto.getLanguage ();
+        imageUrls = courseInputDto.getImageUrls ();
+    }
 }

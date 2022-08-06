@@ -3,7 +3,6 @@ package com.learningapp.data.entity;
 import com.learningapp.data.data_enum.Gender;
 import com.learningapp.data.dto.request.StudentInputDto;
 import lombok.*;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
