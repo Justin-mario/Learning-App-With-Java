@@ -7,12 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
+import java.util.Set;
+
+import static javax.persistence.FetchType.EAGER;
 
 @Getter
 @Setter
@@ -33,6 +35,9 @@ public class LearningParty {
     @Column(nullable = false)
     @JsonIgnore
     private String password;
+
+    @ManyToMany(fetch = EAGER)
+    private Set<LearningPartyRole> roles;
 
     @CreationTimestamp
     private LocalDate dateCreated;

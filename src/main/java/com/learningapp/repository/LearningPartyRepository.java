@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LearningPartyRepository extends JpaRepository<LearningParty, Long> {
+    LearningParty findByEmail(String email);
 }

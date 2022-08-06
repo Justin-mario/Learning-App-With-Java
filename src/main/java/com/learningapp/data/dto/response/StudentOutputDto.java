@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -25,6 +26,8 @@ public class StudentOutputDto {
     private String phoneNumber;
 
     private String gender;
+
+    private LocalDateTime joinedDate;
 
     private List<Course> courseList;
 
