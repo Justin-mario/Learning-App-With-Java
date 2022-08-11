@@ -22,8 +22,8 @@ public class AuthUserImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<LearningParty> activeUser = Optional.of ( Optional.ofNullable ( learningPartyRepository.findByEmail ( username ) )
-                .orElseThrow ( () -> new UsernameNotFoundException ( String.format ( "user with {} username not found", username ) ) ) );
+        Optional<LearningParty> activeUser = Optional.ofNullable ( learningPartyRepository.findByEmail ( username ) )
+                .orElseThrow ( () -> new UsernameNotFoundException ( String.format ( "user with {} username not found", username ) )  );
 
 
         return new User ( activeUser.get ().getEmail (), activeUser.get ().getPassword (), getAuthority ( activeUser.get () ));

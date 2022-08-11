@@ -1,5 +1,6 @@
 package com.learningapp.data.entity;
 
+import com.learningapp.data.dto.request.LearningPartySignUpDto;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,5 +44,17 @@ public class LearningParty {
     private LocalDate dateCreated;
 
     private Boolean isEnabled = Boolean.FALSE;
+
+    public LearningParty(Long id, String email, String password){
+        this.id = id;
+        this.email = email;
+        this.password = password;
+    }
+
+    public LearningParty(LearningPartySignUpDto learningPartySignUpDto){
+        id = learningPartySignUpDto.getId ();
+        email= learningPartySignUpDto.getEmail ();
+        password = learningPartySignUpDto.getPassword ();
+    }
 
 }

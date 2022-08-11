@@ -1,11 +1,11 @@
 package com.learningapp;
 
-import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
@@ -19,12 +19,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LearningAppApplicationTests {
 
 
-  @Autowired
-  DataSource dataSource;
+
+  DataSource dataSource = dataSource ();
    
    @BeforeEach
    void setUp(){
    }
+
 
   @Test
   void connectToDataBaseTest(){
@@ -39,6 +40,17 @@ class LearningAppApplicationTests {
 
     }
 
+  }
+
+  @Bean
+  public DataSource dataSource() {
+    DriverManagerDataSource dataSource = new DriverManagerDataSource();
+    dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+    dataSource.setUrl("jdbc:mysql://localhost:3306/learning_app_db");
+    dataSource.setUsername("root");
+    dataSource.setPassword("HUNters007");
+
+    return dataSource;
   }
 
 }
