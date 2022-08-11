@@ -1,7 +1,7 @@
 set Foreign_key_checks = 0;
 
 truncate table learning_party;
--- truncate table authority;
+truncate table LearningPartyRole;
 truncate table instructor;
 
 insert into learning_party(`id`, `email`, `password`, `enabled`)

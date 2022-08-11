@@ -9,6 +9,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
+
+import static javax.persistence.FetchType.EAGER;
 
 
 @Getter
